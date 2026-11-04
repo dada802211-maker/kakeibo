@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "^(?!api\.php$).+">
+Require all denied
+</FilesMatch>

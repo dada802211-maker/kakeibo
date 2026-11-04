@@ -1,0 +1,14 @@
+Options -Indexes
+DirectoryIndex index.html
+
+# ソース、開発用ファイル、配布アーカイブはWebから公開しません。
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(?:front|scripts|release|tests|\.git)(?:/|$) - [F,L]
+RewriteRule ^(?:README\.md|\.gitignore|プロンプト\.txt)$ - [F,L]
+</IfModule>
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "DENY"
+Header always set Referrer-Policy "same-origin"
+</IfModule>
